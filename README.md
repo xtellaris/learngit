@@ -36,4 +36,10 @@ git commit -m "wrote a readme file."
 
 ## 版本回退
 
+每次git提交了修改都有一个commit id，相当于版本号，它是一串十六进制代码，通常前7位就足够指示了
+- `git log` 查看版本提交历史，确定id，嫌多用--pretty=oneline简化输出
+- `git reset --hard commit_id`来**回退**到某一个id的版本，也可以用HEAD指针
+	> HEAD指针是git特有的，永远只想最新更新的版本，`HEAD^`则是倒数第二个版本的id，`HEAD^^`就是倒数第三个，`HEAD~n`就是倒数第n+1个版本（上n个版本）
+- `git reflog`能查看历史命令，获取回退前的id，回退之后后悔了，可以用它**回到未来**，同样，回到未来也用`git reset ...`
+
 
