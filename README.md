@@ -33,3 +33,7 @@ git commit -m "wrote a readme file."
 `git diff` 查看上次修改的具体内容
 
 所以提交修改和添加文件步骤是一样的，先add 再commit，中间活用status和diff来掌握repo状态
+
+## 版本回退
+
+
