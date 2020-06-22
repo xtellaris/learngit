@@ -24,4 +24,6 @@ git add README.md
 ```
 git commit -m "wrote a readme file."
 ```
+	git会告诉我们几个文件改了，插入了几行内容
+> `add`一次只能加一个文件，而`commit`一次能添加数个文件，因为它只是说明性步骤
 
