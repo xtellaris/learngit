@@ -48,7 +48,40 @@ git commit -m "wrote a readme file."
 
 ## 工作区和暂存区
 
+- 工作区（Working Directory）：git项目的根文件夹，比如learngit这个项目的`learngit/`文件夹
+- 版本库（Repository）：工作区下有一个`.git`目录，比如`learngit/.git/`，是Git的版本库。版本库之下有暂存区（stage）、第一个分支`master`、指向`master`的`HEAD`指针
+	- 暂存区（Stage）：`git add `之后暂时保存的地方
+	- `master`分支：新建Git版本库时自动创建的第一个分支
+	- `HEAD`指针：
+
+
 ## 管理和撤销修改
+
+### Git添加修改的一般过程
+1. **修改工作区文件**，比如修改`learngit/README.md`
+2. `git add README.md` **添加修改**到暂存区（Stage）
+3. `git commit ...` 提交暂存区（Stage）的修改到版本库（Repo），这时就有了新的版本号
+
+如果 "第一次修改--> git add --> 第二次修改 --> git commit" 那么对于版本库（Repo）来说，只有第一次修改进入了版本库，因为第二次修改没有`git add`，也就没能进入暂存区，而`git commit`只能添加暂存区的内容
+
+被这样一层一层提交的是对文件的修改，而非文件本身，所以Git管理的是修改，而不是文件。
+
+### 使用`git diff`
+可以用如下命令来比较WD、Stage和Repo三者的状态：
+```git
+# 比较WD和Stage
+git diff [filename]
+
+# 比较WD和Repo的HEAD commit
+git diff HEAD -- filename 
+```
+
+### `git diff`与`git status`的区别
+
+`git status`：只能比较当前WD（分支多的话叫Working tree，也就是当前分支树）和HEAD commit的区别，能找出新增的文件，但没有详细细节
+
+`git diff`：能比较的对象很多，可以是WD和Stagev之间，WD和Repo里的任意一个commit之间，不同commit之间等等，而且能列出修改详情。直接输入`git diff`，默认比较WD和Stage的区别。但不能列出新增文件，而且不能列出新增文件
+
 
 ## 删除文件
 
